@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>public.clicker</title>
+</head>
+<body>
+  <h1>hi welcome to the public clicker, we are also opensource on github: https://github.com/1337dopamine/public.clicker/</h1>
+  <div id="count">loading...</div>
+  <button onclick="increment()">click</button>
+
+  <script>
+    const namespace = 'publicClicker.dopamine.gay'; 
+    const key = 'click';
+    const url = `https://abacus.jasoncameron.dev/hit/${namespace}/${key}`;
+
+    function increment() {
+      fetch(url)
+        .then(response => response.json())
+        .then(data => {
+          document.getElementById('count').innerText = data.value;
+        })
+        .catch(error => {
+          console.error('Error:', error);
+        });
+    }
+    increment();
+  </script>
+</body>
+</html>
